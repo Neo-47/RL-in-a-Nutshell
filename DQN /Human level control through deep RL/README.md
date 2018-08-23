@@ -1,7 +1,7 @@
 # Human-level control through deep reinforcement learning
 
 ## Table of contents
-+ The Problem
++ [The Problem](#The-Problem)
 + The Solution
 + The Architecture
 + The Algorithm Pseudocode
