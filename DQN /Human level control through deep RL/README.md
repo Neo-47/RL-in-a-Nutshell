@@ -16,7 +16,7 @@ step is really an improvement. We kind of make progress, and then take a step aw
 
 This instability has several causes: the correlations present in the sequence of observations, 
 the fact that small updates to Q may significantly change the policy and therefore change
-the data distribution, i.e. an update that increases Q(st, at) often increases Q(st+1, at)
+the data distribution, i.e. an update that increases Q(*st*, *at*) often increases Q(*st+1*, *at*)
 for all a and hence also increases the target, possibly leading to oscillations or
 divergence of the policy. Another cause is the correlations between action-values and the target values.
 
