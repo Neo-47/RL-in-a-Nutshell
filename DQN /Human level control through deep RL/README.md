@@ -2,9 +2,9 @@
 
 ## Table of contents
 + [The Problem](#The-Problem)
-+ The Solution
-+ The Architecture
-+ The Algorithm Pseudocode
++ [The Solution](#The-Solution)
++ [The Architecture](#The-Architecture)
++ [The Algorithm Pseudocode](#The-Algorithm-Pseudocode)
 
 ## The Problem
 
@@ -17,6 +17,13 @@ step is really an improvement. We kind of make progress, and then take a step aw
 This instability has several causes: the correlations present in the sequence of observations, 
 the fact that small updates to Q may significantly change the policy and therefore change
 the data distribution, and the correlations between action-values and the target values.
+
+The novel artificial agent, termed a deep Q-network can learn successful policies directly
+from high-dimensional sensory inputs using end-to-end reinforcement learning. The agent
+was tested on the challenging domain of Atari 2600 games. Receiving only the pixels and the game
+score as inputs, the agent was able to surpass the performance of all previous algorithms
+and achieve a level comparable to that of a professional human games tester across a set
+of 49 games, using the same algorithm, network architecture and hyperparameters.
 
 ## The Solution
 
@@ -39,6 +46,24 @@ changes in the data distribution.
 
 Second, an iterative update that adjusts the action-values (Q) towards target values
 that are only periodically updated is used, thereby reducing correlations with the target.
+
+This is a comparison of the DQN agent with the best reinforcement learning methods in the 
+literature,
+
+<p align="center">
+  <img src = "https://user-images.githubusercontent.com/19307995/44564109-a2374e80-a761-11e8-9f17-a91a351b70f2.png"/>
+</p>
+
+The performance of the DQN is normalized with respect to a professional human games
+tester (that is, 100% level) and random play (that is, 0% level). The normalized performance 
+of DQN expressed as a percentage, is calculated as: 100 x (DQN score - random play score)
+/(human score - random play score). It can be seen that DQN outperforms competing methods
+in almost all the games, and performs at a level that is broadly comparable with or
+superior to a professional human games tester (that is, operationalized as a level of
+75% or above) in the majority of games. Audio output was disabled for both human players
+and agents. Error bars indicate s.d. across the 30 evaluation episodes, starting with
+different initial conditions.
+
 
 ## The Architecture
 
@@ -73,7 +98,18 @@ The action is passed to the emulator and modifies its internal state and the gam
 
 The emulator's internal state is not observed by the agent; instead the agent observes
 an image from the emualator, which is a vector of pixel values representing the current
-screen. In addition it recieves a reward *rt* representing the change in game score. The algorithm is shown here;
+screen. In addition it recieves a reward *rt* representing the change in game score.
+
+There is a change to the reward structure of the games during training only. As the
+scale of scores varies greatly form game to game, all positive rewards were clipped
+at 1 and all negative rewards were clipped at -1, leaving 0 rewards unchanged.
+Clipping the rewards in this manner limits the scale of the error derivative and makes
+it easier to use the same learning rate across mulitple games. At the same time, it could affect the performance of the agent since it cannot differeniate
+between rewards of different magnitude.
+
+
+
+The algorithm is shown here;
 
 <p align="center">
 <img src = "https://user-images.githubusercontent.com/19307995/44313359-b7317c00-a407-11e8-988f-d6324a74f726.png"/>
