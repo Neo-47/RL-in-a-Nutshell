@@ -3,7 +3,8 @@
 ## Table of contents
 + The Problem
 + The Solution
-+ The Theorem
++ Policy Gradient Theorem
++ Policy Gradient Proof
 
 
 ## The Problem
@@ -71,6 +72,62 @@ The agent's decision making procedure at each time is characterized by a policy,
 π(s, a, *θ*) = *Pr*{at = a| st = s, *θ*}, ∀s ∈ *S*, a ∈ *A*, where *θ* ∈ R is a paremeter
 vector with length L where L << |*S*|. We assume that π is differentiable with respect
 to its parameters, i.e., that the gradient exists.
+
+With function approximation, two ways of formulating the agent's objective are useful.
+The first one is the average reward formulation, in which policies are ranked according to
+their long-term expected reward per step, *ρ*(π):
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44955606-433aad80-aeb6-11e8-8a33-ffee458befd0.png">
+</p>
+
+where d(s) is the stationary distribution of states under π, which we assume exists and
+is independent of s0 for all policies. The objective is there's some probability that we're
+in a state, there's some probability we'll take an action from that state under the policy, 
+and there is the immediate reward that we'll get at that step. What we care about is getting the
+most reward per time step.
+
+In the average reward formulation, the value of a state-action pair given a policy is
+defined as:
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44955662-6ade4580-aeb7-11e8-9372-cfdd162dd99b.png">
+</p>
+
+In the second formulation, there's a designated start state s0, and we care about the logn-term
+reward obtained from it. The performance measure and the value of state-action pair will be:
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44955696-d7f1db00-aeb7-11e8-8515-d25d41ba3c93.png">
+</p>
+
+where 𝛾 ∈ [0,1] is a discount rate (𝛾 = 1 is allowed only in episodic tasks). In this 
+formulation, we define d(s) as a discounted weighting of states encountered starting at
+s0 and then following π:
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44955742-cb21b700-aeb8-11e8-8f05-1f5ae6e834c0.png">
+</p>
+
+**Theorem 1 (Policy Gradient)**. For any MDP, in either the average-reward or 
+start-state formulations, 
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44955770-2f447b00-aeb9-11e8-9e64-658cf40a3872.png">
+</p>
+
+## Policy Gradient Proof
+
+
+
+
+
+
+
+
+
+
+
 
 
 
