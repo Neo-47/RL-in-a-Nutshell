@@ -118,6 +118,18 @@ start-state formulations,
 
 ## Policy Gradient Proof
 
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44959237-78adbe00-aeeb-11e8-9ac5-950bf48a7b9e.png">
+</p>
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44959245-94b15f80-aeeb-11e8-9f00-d1e28ecd1722.png">
+</p>
+
+<p align="center">
+<img src = "https://user-images.githubusercontent.com/19307995/44959276-e0fc9f80-aeeb-11e8-9784-abc5b1279ed8.png">
+</p>
+
 
 
 
