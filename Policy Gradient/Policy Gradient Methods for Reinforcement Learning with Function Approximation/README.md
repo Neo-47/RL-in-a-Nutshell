@@ -8,13 +8,6 @@
 
 ## The Problem
 
-Policy gradient methods try to optimize the policy directly instead of working with 
-value functions. In these methods, the agent sees some experience and from that
-experience tries to figure out how to change the policy in the direction that makes
-it better. In this approach, the policy is explicitly represented by its own function approximator,
-independent of the value function, and is updated according to the gradient of expected 
-reward with respect to the policy parameters.
-
 As mentioned in the [summary](https://github.com/Neo-47/RL-in-a-Nutshell/tree/master/DQN%20/Human%20level%20control%20through%20deep%20RL) of DQN paper, value-function approach has worked well in 
 many applications, but has several limitations. First, it's oriented toward finding
 a deterministic policy, whereas the optimal policy is often stochastic, e.g. in the 
@@ -25,14 +18,21 @@ changes have been identified as a key obstacle to establishing convergence assur
 algorithms following the value-function approach.
 
 As mentioned in the problem section of DQN summary [here](https://github.com/Neo-47/RL-in-a-Nutshell/tree/master/DQN%20/Human%20level%20control%20through%20deep%20RL#the-problem), small updates to Q may significantly change the policy and therefore change the data distribution, i.e. an update that increases Q(st, at) often increases Q(st+1, at) for all a and hence also increases the target, possibly leading to oscillations or divergence of the policy. You can read more
-to see how they treated this problem.
+to see how they treated this problem from the value-based methods perspective.
 
 ## The Solution
 
-Rather than approximating a value function and using that to compute a determinisitc
+Policy gradient methods try to optimize the policy directly instead of working with 
+value functions. In these methods, the agent sees some experience and from that
+experience tries to figure out how to change the policy in the direction that makes
+it better. In this approach, the policy is explicitly represented by its own function approximator,
+independent of the value function, and is updated according to the gradient of expected 
+reward with respect to the policy parameters.
+
+Rather than approximating a value function and using that to compute a deterministic
 policy, we approximate a stochastic policy directly using an independent function
 approximator with its own parameters. The policy might be represented by a neural 
-network whose input is a representation of the state, whose output is action seletion
+network whose input is a representation of the state, whose output is action selection
 probabilities, and whose weights are the policy parameters.
 
 Let *θ* denote the vector of policy parameters and *ρ* the performance of the corresponding
@@ -58,14 +58,20 @@ time t ∈ {0, 1, 2, ...} are denoted st ∈ *S*, at ∈ *A*, and rt ∈ *R* res
 The environment's dynamics are characterized by state transition probabilities, 
 
 <p align="center">
-<img src = "https://user-images.githubusercontent.com/19307995/44950775-09838b80-ae51-11e8-8644-8f3326d3ed42.png">
+<img src = "https://user-images.githubusercontent.com/19307995/44950981-d09ae500-ae57-11e8-90aa-76f6f5a2e1c8.png">
 </p>
 
 and expected reward,
 
 <p align="center">
-<img src = "https://user-images.githubusercontent.com/19307995/44950785-3172ef00-ae51-11e8-9a84-8d69da340634.png">
+<img src = "https://user-images.githubusercontent.com/19307995/44950984-e01a2e00-ae57-11e8-9097-1d614d42440b.png">
 </p>
+
+The agent's decision making procedure at each time is characterized by a policy, 
+π(s, a, *θ*) = *Pr*{at = a| st = s, *θ*}, ∀s ∈ *S*, a ∈ *A*, where *θ* ∈ R is a paremeter
+vector with length L where L << |*S*|. We assume that π is differentiable with respect
+to its parameters, i.e., that the gradient exists.
+
 
 
 
