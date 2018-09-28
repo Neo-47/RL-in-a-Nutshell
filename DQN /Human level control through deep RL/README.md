@@ -1,4 +1,7 @@
 # Human-level control through deep reinforcement learning
++ **Authors**: Volodymyr Mnih, David Silver et al.
++ **Tags**: DQN, Atari, Experience Replay.
++ **Year**: 2015
 
 ## Table of contents
 + The Problem
