@@ -1,4 +1,6 @@
 # Policy Gradient Methods for Reinforcement Learning with Function Approximation
++ **Authors**: Richard S. Sutton, David McAllester, Satinder Singh, Yishay Mansour 
++ **Tags**: Policy Gradient, Function Approximation, Actor-Critic
 
 ## Table of contents
 + The Problem
