@@ -6,6 +6,7 @@
 ## Table of contents
 + The Problem
 + The Solution
++ Contributions
 
 ## The Problem
 
@@ -93,6 +94,30 @@ This version of Double DQN is perhaps the minimal possible change to DQN towards
 Double Q-learning. The goal is to get most of the benefit of Double Q-learning, while
 keeping the rest of the DQN algorithm intact for a fair comparison, and with minimal
 computational overhead.
+
+## Contributions
+
+The following figure shows that on several games the improvements from DQN to Double 
+DQN are striking, in some cases bringing scores much closer to human, or even surpassing these.
+
+<p align="center">
+<img src ="https://user-images.githubusercontent.com/19307995/46909919-d7c70f80-cf3a-11e8-9ccc-4834a25e09e5.png"/>
+</p>
+
+This paper presented five contributions. First, it's  showen why Q-learning can be
+overoptimistic in large-scale problems, even if these are deterministic, due to the
+inherent estimation errors of learning. Second, by analyzing the value estimates on
+Atari games it's clear that these overestimations are more common and severe in practice
+than previously acknowledged. Thrid, it's shown that Double Q-learning can be used at
+scale to successfully reduce this overoptimism, resulting in more stable and reliable
+learning. Fourth, the authors proposed a specific implementation called Double DQN, that
+uses the existing architecture and deep neural networks of the DQN algorithm without
+requiring additional networks or parameters. Finally, the authors have shown that 
+Double DQN finds better policies, obtaining new state-of-the-art results on the Atari 2600 domain.
+
+For more details on the experiments and plots illustrating the contributions, head straight to the paper.
+
+
 
 
 
