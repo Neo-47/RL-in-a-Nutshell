@@ -5,8 +5,8 @@
 ## Table of contents
 + The Problem
 + The Solution
-+ Policy Gradient Theorem
-+ Policy Gradient Proof
++ Policy Gradient with Approximation
+
 
 
 ## The Problem
@@ -118,19 +118,18 @@ start-state formulations,
 <img src = "https://user-images.githubusercontent.com/19307995/44955770-2f447b00-aeb9-11e8-9e64-658cf40a3872.png">
 </p>
 
-## Policy Gradient Proof
+For the proof, see the appendix in the paper.
+
+## Policy Gradient with Approximation
+
+Consider the case in which Qπ  is approximated by a learned function approximator.
+If the approximation is sufficiently good, we might hope to use it in place of Qπ  in
+(2) and still point roughly in the direction of the gradient.
 
 <p align="center">
-<img src = "https://user-images.githubusercontent.com/19307995/44959237-78adbe00-aeeb-11e8-9ac5-950bf48a7b9e.png">
+<img src = "https://user-images.githubusercontent.com/19307995/46910772-e289a080-cf4a-11e8-8960-dbe35f2d5ef7.png">
 </p>
 
-<p align="center">
-<img src = "https://user-images.githubusercontent.com/19307995/44959245-94b15f80-aeeb-11e8-9f00-d1e28ecd1722.png">
-</p>
-
-<p align="center">
-<img src = "https://user-images.githubusercontent.com/19307995/44959276-e0fc9f80-aeeb-11e8-9784-abc5b1279ed8.png">
-</p>
 
 
 
