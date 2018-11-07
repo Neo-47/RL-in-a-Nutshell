@@ -16,3 +16,9 @@ There are also low-level languages such as differential equations and state-tran
 
 Horde is an architecture that consists of a large number of independant reinforcement learning sub-agents, or demons. Each demon is responsible for answering a single predictive or goal-oriented question about the world, thereby contributing in a factored, modular way to the system's overall knowledge. The questions are in the form of a value function, but each demon has its own policy, reward function, termination function, and terminal-reward function unrelated to those of the base problem. In this approach, the knowledge is represented as a large number of approximate value functions learned in parallel, each with its own policy, pseudo-reward function, pseudo-termination function, and pseudo-terminal-reward function.
 
+## Why learn value functions
+
+A distinctive, appealing feature of approximate value functions as a knowledge representation language is that they have an explicit semantics, a clear notion of truth grounded in sensorimotor interaction. A bit of knowledge expressed as an approximate value function is said to be true, or more precisely accurate, to the extent that its numerical values match those of the mathematically defined value function that it's approximating. 
+
+A value function asks a question, what will the cumulative future reward be?. An approximate value function provides an answer to that question. The approximate value function is the knowledge, and its match to the value function, to the actual future reward, defines what it means for the knowledge to be accurate.
+
