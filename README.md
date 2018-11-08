@@ -15,6 +15,10 @@ This repo is dedicated for reinforcement learning papers and literature. I'll pr
   + [Summary](https://github.com/Neo-47/RL-in-a-Nutshell/tree/master/DQN%20/Double%20Q-learning)
   + [Paper](https://arxiv.org/pdf/1509.06461.pdf)
   
++ **Horde: A Scalable Real-time Architecture for Learning Knowledge from Unsupervised Sensorimotor Interaction**.
+  + [Summary](https://github.com/Neo-47/RL-in-a-Nutshell/tree/master/Value-based%20Methods/Horde)
+  + [Paper](https://www.cs.swarthmore.edu/~meeden/DevelopmentalRobotics/horde1.pdf)
+  
 
 ## **Policy-based methods**
 
